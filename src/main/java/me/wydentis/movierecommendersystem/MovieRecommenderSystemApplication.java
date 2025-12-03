@@ -4,17 +4,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.util.Arrays;
-
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
 
-        RecommenderImplementation2 recommender = context.getBean(RecommenderImplementation2.class);
-        String[] result = recommender.recommendMovies("Finding Glory");
-        System.out.println(Arrays.toString(result));
+        ContentBasedFilter cbf1 = context.getBean(ContentBasedFilter.class);
+        ContentBasedFilter cbf2 = context.getBean(ContentBasedFilter.class);
+        ContentBasedFilter cbf3 = context.getBean(ContentBasedFilter.class);
+
+        System.out.println(cbf1);
+        System.out.println(cbf2);
+        System.out.println(cbf3);
     }
 
 }
