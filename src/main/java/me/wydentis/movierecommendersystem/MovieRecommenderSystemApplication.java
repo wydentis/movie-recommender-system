@@ -12,7 +12,7 @@ public class MovieRecommenderSystemApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
 
-        RecommenderImplementation recommender = context.getBean(RecommenderImplementation.class);
+        RecommenderImplementation2 recommender = context.getBean(RecommenderImplementation2.class);
         String[] result = recommender.recommendMovies("Finding Glory");
         System.out.println(Arrays.toString(result));
     }
