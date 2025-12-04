@@ -10,13 +10,19 @@ public class MovieRecommenderSystemApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
 
-        ContentBasedFilter cbf1 = context.getBean(ContentBasedFilter.class);
-        ContentBasedFilter cbf2 = context.getBean(ContentBasedFilter.class);
-        ContentBasedFilter cbf3 = context.getBean(ContentBasedFilter.class);
+        ContentBasedFilter filter = context.getBean(ContentBasedFilter.class);
+        System.out.println(filter);
 
-        System.out.println(cbf1);
-        System.out.println(cbf2);
-        System.out.println(cbf3);
+        Movie movie1 = filter.getMovie();
+        Movie movie2 = filter.getMovie();
+        Movie movie3 = filter.getMovie();
+
+        System.out.println(movie1);
+        System.out.println(movie2);
+        System.out.println(movie3);
+
+        System.out.println("ContentBasedFilter instances: " + ContentBasedFilter.getInstances());
+        System.out.println("Movie instances: " + Movie.getInstances());
     }
 
 }
