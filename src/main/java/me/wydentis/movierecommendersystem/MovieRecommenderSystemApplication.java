@@ -1,23 +1,24 @@
 package me.wydentis.movierecommendersystem;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+import java.util.Arrays;
+
+@Configuration
+@ComponentScan
 public class MovieRecommenderSystemApplication {
 
     public static void main(String[] args) {
-        ApplicationContext appContext = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
+        AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(MovieRecommenderSystemApplication.class);
 
         RecommenderImplementation recommender = appContext.getBean(RecommenderImplementation.class);
-        System.out.println(recommender);
 
-        Movie m1 = appContext.getBean(Movie.class);
-        System.out.println(m1);
+        String[] result = recommender.recommendMovies("Finding Dory");
 
-        Movie m2 = appContext.getBean(Movie.class);
-        System.out.println(m2);
+        System.out.println(Arrays.toString(result));
+        appContext.close();
     }
 
 }

@@ -1,29 +1,9 @@
 package me.wydentis.movierecommendersystem;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ContentBasedFilter implements Filter {
-    private final Logger logger = LoggerFactory.getLogger(ContentBasedFilter.class);
-
-    public ContentBasedFilter() {
-        logger.info("constructor called");
-    }
-
-    @PostConstruct
-    private void postConstruct() {
-        logger.info("postConstruct called");
-    }
-
-    @PreDestroy
-    public void preDestroy() {
-        logger.info("preDestroy called");
-    }
-
     public String[] getRecommendations(String movie) {
         return new String[] {"Happy Feet", "Ice Age", "Shark Tale"};
     }
