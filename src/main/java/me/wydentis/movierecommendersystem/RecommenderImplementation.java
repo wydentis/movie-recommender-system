@@ -1,13 +1,14 @@
 package me.wydentis.movierecommendersystem;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-@Component
 public class RecommenderImplementation {
     private final Filter filter;
 
-    @Autowired
+    public Filter getFilter() {
+        return filter;
+    }
+
     public RecommenderImplementation(Filter filter) {
         this.filter = filter;
     }
